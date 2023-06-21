@@ -138,29 +138,30 @@ class _MyHomePageState extends State<MyHomePage> {
               "Result :",
               style: Theme.of(context).textTheme.bodyMedium,
             ),
-            BlocBuilder<NumberSeriesBloc, NumberSeriesState>(
-              builder: (context, state) {
-                if (state is ResultState) {
-                  return SingleChildScrollView(
-                    child: Container(
-                        child: Column(
+            Expanded(
+              child: ListView(
+                scrollDirection: Axis.vertical,
+                children: [
+                  BlocBuilder<NumberSeriesBloc, NumberSeriesState>(
+                    builder: (context, state) {
+                      if (state is ResultState) {
+                        return Row(
                           children: [
-                            Row(
-                      children: [
                             Flexible(
                                 child: Text(
                               "${state.result}",
                               style: Theme.of(context).textTheme.bodyMedium,
                             ))
-                      ],
-                    ),
                           ],
-                        )),
-                  );
-                } else {
-                  return SizedBox.shrink();
-                }
-              },
+                        );
+                      } else {
+                        return SizedBox.shrink();
+                      }
+                    },
+                  ),
+                ],
+                // child:
+              ),
             ),
           ],
         ),
