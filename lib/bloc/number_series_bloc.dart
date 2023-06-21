@@ -19,7 +19,6 @@ class NumberSeriesBloc extends Bloc<NumberSeriesEvent, NumberSeriesState> {
         }
         buffer.write(i);
       }
-      // yield ResultState(buffer.toString());
     } else if (type == 2) {
       for (int i = 1; i <= n; i++) {
         if (i != 1) {
@@ -31,7 +30,6 @@ class NumberSeriesBloc extends Bloc<NumberSeriesEvent, NumberSeriesState> {
         buffer.write(' ');
         buffer.write(i);
       }
-      // yield ResultState(buffer.toString());
     } else if (type == 3) {
       for (int i = 1; i <= n; i++) {
         if (i != 1) {
@@ -39,7 +37,6 @@ class NumberSeriesBloc extends Bloc<NumberSeriesEvent, NumberSeriesState> {
         }
         buffer.write((i * 10) + (i - 1));
       }
-      // yield ResultState(buffer.toString());
     } else if (type == 4) {
       for (int i = 1; i <= n; i++) {
         if (i != 1) {
@@ -53,7 +50,6 @@ class NumberSeriesBloc extends Bloc<NumberSeriesEvent, NumberSeriesState> {
           buffer.write(i);
         }
       }
-      // yield ResultState(buffer.toString());
     }
     emit(ResultState(buffer.toString()));
     });
